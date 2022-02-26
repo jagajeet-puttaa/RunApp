@@ -1,0 +1,14 @@
+<p>listnotes works!</p>
+
+<div *ngIf="notes?.length !== 0">
+    <h1>All notes ({{notes?.length}})  </h1>
+    <ul >
+        <li *ngFor="let list of notes">
+            <p>{{list.id}} | {{list.content}} </p>
+        </li>
+    </ul>
+</div>
+
+<div>
+    <button routerLink="add">Add notes</button>
+</div>
