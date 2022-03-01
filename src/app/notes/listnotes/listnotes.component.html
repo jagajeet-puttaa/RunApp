@@ -4,11 +4,12 @@
     <h1>All notes ({{notes?.length}})  </h1>
     <ul >
         <li *ngFor="let list of notes">
-            <p>{{list.id}} | {{list.content}} </p>
+            <p> <a [routerLink]="['view',list.id]" > {{list.id}} </a> | {{list.content}} </p>
         </li>
     </ul>
 </div>
 
 <div>
     <button routerLink="add">Add notes</button>
+    <button routerLink="">Back</button>
 </div>

@@ -1,12 +1,12 @@
 export interface INote 
 {
-    id ?: number,
+    id ?: string,
     content ?: string
 }
 
 export class Note implements INote{
 
-    constructor(public id ?:number, public content ?:string){
+    constructor(public id ?:string, public content ?:string){
         
     }
 

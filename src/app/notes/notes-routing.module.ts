@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddnotesComponent } from './addnotes/addnotes.component';
 import { ListnotesComponent } from './listnotes/listnotes.component';
+import { ViewnotesComponent } from './viewnotes/viewnotes.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'add',
     component: AddnotesComponent
+  },
+  {
+    path: 'view/:id',
+    component: ViewnotesComponent,
   }
 ];
 
