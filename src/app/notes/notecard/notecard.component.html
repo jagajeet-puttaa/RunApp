@@ -2,37 +2,92 @@
 
 <!-- <pre>{{data | json}}</pre> -->
 
-<table>
-    <tr>
-        <th>Id</th>
-        <td>{{data?.id}}</td>
-    </tr>
-    <tr>
-        <th>Url</th>
-        <td>{{data?.id}}</td>
-    </tr>
-    <tr>
-        <th>Forks Url</th>
-        <td>{{data?.forks_url}}</td>
-    </tr>
-    <tr>
-        <th>Commits Url</th>
-        <td>{{data?.commits_url}}</td>
-    </tr>
-    <tr>
-        <th>Node ID</th>
-        <td>{{data?.node_id}}</td>
-    </tr>
-    <tr>
-        <th>Git Pull Url</th>
-        <td>{{data?.git_pull_url}}</td>
-    </tr>
-    <tr>
-        <th>Git Push Url</th>
-        <td>{{data?.git_push_url}}</td>
-    </tr>
-    <tr>
-        <th>HTML Url</th>
-        <td>{{data?.html_url}}</td>
-    </tr>
-</table>
+<mat-card class="card">
+    <mat-card-title>Item </mat-card-title>
+    <mat-card-subtitle>Id : {{data?.id}}</mat-card-subtitle>
+
+    <mat-card-content *ngIf="!editState">
+
+        <table id="cardDetails">
+            <tr>
+                <th>Id</th>
+                <td>{{data?.id}}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{data?.url}}</td>
+            </tr>
+            <tr>
+                <th>Forks Url</th>
+                <td>{{data?.forks_url}}</td>
+            </tr>
+            <tr>
+                <th>Commits Url</th>
+                <td>{{data?.commits_url}}</td>
+            </tr>
+            <tr>
+                <th>Node ID</th>
+                <td>{{data?.node_id}}</td>
+            </tr>
+            <tr>
+                <th>Git Pull Url</th>
+                <td>{{data?.git_pull_url}}</td>
+            </tr>
+            <tr>
+                <th>Git Push Url</th>
+                <td>{{data?.git_push_url}}</td>
+            </tr>
+            <tr>
+                <th>HTML Url</th>
+                <td>{{data?.html_url}}</td>
+            </tr>
+        </table>
+
+    </mat-card-content>
+
+    <mat-card-content *ngIf="editState">
+
+        <table id="cardDetails" class="editTable">
+            <tr>
+                <th>Id</th>
+                <td>{{data?.id}}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td><input matInput [(ngModel)]="data.url" type="text" value="{{data?.url}}"></td>
+            </tr>
+            <tr>
+                <th>Forks Url</th>
+                <td><input matInput [(ngModel)]="data.forks_url" type="text" value="{{data?.forks_url}}"></td>
+            </tr>
+            <tr>
+                <th>Commits Url</th>
+                <td><input type="text" [(ngModel)]="data.commits_url" value="{{data?.commits_url}}"></td>
+            </tr>
+            <tr>
+                <th>Node ID</th>
+                <td><input type="text" [(ngModel)]="data.node_id" value="{{data?.node_id}}"></td>
+            </tr>
+            <tr>
+                <th>Git Pull Url</th>
+                <td><input type="text" [(ngModel)]="data.git_pull_url" value="{{data?.git_pull_url}}"></td>
+            </tr>
+            <tr>
+                <th>Git Push Url</th>
+                <td><input type="text" [(ngModel)]="data.git_push_url" value="{{data?.git_push_url}}"></td>
+            </tr>
+            <tr>
+                <th>HTML Url</th>
+                <td><input type="text" [(ngModel)]="data.html_url" value="{{data?.html_url}}"></td>
+            </tr>
+        </table>
+
+
+    </mat-card-content>
+
+    <mat-card-actions class="buttonHolder">
+        <button mat-raised-button color="primary" (click)="onClickingEdit()">Edit</button>
+        <button mat-raised-button color="primary" (click)="onClickingSave()" [disabled]="disableSave">Save</button>
+      </mat-card-actions>
+
+</mat-card>

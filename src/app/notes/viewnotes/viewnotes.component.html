@@ -2,23 +2,15 @@
 <p>viewnotes works!</p>
 
 <div>
-    <button routerLink="/notes">Back</button>
+    <pre>{{details  | json}}</pre>
 </div>
 
-<app-notecard [data]="details"></app-notecard>
-<app-notecard [data]="details"></app-notecard>
-<app-notecard [data]="details"></app-notecard>
+<app-notecard *ngIf="details" [(data)]="details"></app-notecard>
+<!-- <app-notecard *ngIf="details" [data]="details"></app-notecard> -->
 
-<!-- <ul >
-    <li> ID : {{details?.id}}</li>
-    <li> URL : {{details?.id}}</li>
-    <li> FORKS URL : {{details?.forks_url}}</li>
-    <li> COMMITS URL : {{details?.commits_url}}</li>
-    <li> NODE ID : {{details?.node_id}}</li>
-    <li> GIT PULL URL : {{details?.git_pull_url}}</li>
-    <li> GIT PUSH URL : {{details?.git_push_url}}</li>
-    <li> HTML URL : {{details?.html_url}}</li>
-</ul> -->
+<div>
+    <button mat-raised-button color="primary" routerLink="/notes">Back</button>
+</div>
 
 
 

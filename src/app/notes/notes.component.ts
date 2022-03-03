@@ -8,22 +8,7 @@ import { INote, Note } from './note.model';
 })
 export class NotesComponent {
 
-
   constructor() {}
 
-
-  // initialize(){
-
-  //   for(let i=0;i<5;i++)
-  //   {
-  //     this.notes?.push({
-  //       id: i,
-  //       content : "Hello"
-  //     })
-  //   }
-
-  //   console.log(this.notes)
-
-  // }
 
 }

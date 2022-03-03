@@ -1,15 +1,26 @@
 <p>listnotes works!</p>
 
-<div *ngIf="notes?.length !== 0">
+<!-- <div *ngIf="notes?.length !== 0">
     <h1>All notes ({{notes?.length}})  </h1>
     <ul >
         <li *ngFor="let list of notes">
             <p> <a [routerLink]="['view',list.id]" > {{list.id}} </a> | {{list.content}} </p>
         </li>
     </ul>
+</div> -->
+
+
+<div *ngIf="notes?.length !== 0">
+    <h1>All notes ({{notes?.length}})  </h1>
+
+    <mat-nav-list role="list" *ngFor="let list of notes">
+            <a mat-list-item [routerLink]="['view',list.id]" > {{list.id}} | {{list.content}}</a> 
+    </mat-nav-list>
+
+
 </div>
 
 <div>
-    <button routerLink="add">Add notes</button>
-    <button routerLink="">Back</button>
+    <button mat-raised-button color="primary" routerLink="add">Add notes</button>
+    <button mat-raised-button color="primary" routerLink="">Back</button>
 </div>

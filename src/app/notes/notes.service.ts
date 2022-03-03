@@ -53,14 +53,14 @@ export interface IDetails{
 export class Details implements IDetails{
 
   constructor(
-    id ?: string,
-    url ?: string,
-    forks_url?: string,
-    commits_url?: string,
-    node_id?: string,
-    git_pull_url?: string,
-    git_push_url?: string,
-    html_url?: string
+    public id ?: string,
+    public url ?: string,
+    public forks_url?: string,
+    public commits_url?: string,
+    public node_id?: string,
+    public git_pull_url?: string,
+    public git_push_url?: string,
+    public html_url?: string
   ) { }
 
 }

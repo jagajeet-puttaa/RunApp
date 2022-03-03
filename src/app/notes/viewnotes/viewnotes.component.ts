@@ -13,7 +13,7 @@ import { Details, IDetails, NotesService } from '../notes.service';
 export class ViewnotesComponent implements OnInit {
 
   gistId ?: string | null = '';
-  details ?: IDetails = new Details();
+  public details ?: IDetails = new Details();
   detailsUrl : string = '';
 
   constructor( private route: ActivatedRoute, protected noteService : NotesService) { }
@@ -27,26 +27,15 @@ export class ViewnotesComponent implements OnInit {
 
     this.loadDetailsToState();
 
-    console.log(this.gistId)
   }
 
-  // loadDetailsToState(){
-    
-  //   this.noteService.loadSample().subscribe( res => console.log())
-
-  // }
-
   loadDetailsToState(){
-
-    // this.noteService.detailsUrl += this.gistId;
 
     this.detailsUrl = "https://api.github.com/gists/" + this.gistId
 
     this.noteService.loadDetails(this.detailsUrl).subscribe(
       {
           next : (res : HttpResponse<IDetails>) => {
-
-          console.log(res.body)
 
           if(this.details){
 
@@ -60,30 +49,6 @@ export class ViewnotesComponent implements OnInit {
             this.details.html_url = res.body?.html_url
             
           }
-
-          console.log(this.details)
-
-          // this.details = res.body?.map( gist => new Details(
-          //   gist.id, 
-          //   gist.url,
-          //   gist.forks_url,
-          //   gist.commits_url,
-          //   gist.node_id,
-          //   gist.git_pull_url,
-          //   gist.git_push_url,
-          //   gist.html_url
-          // )) ?? [];
-
-          // this.details = new Details(
-          //   res.body?.id, 
-          //   res.body?.url,
-          //   res.body?.forks_url,
-          //   res.body?.commits_url,
-          //   res.body?.node_id,
-          //   res.body?.git_pull_url,
-          //   res.body?.git_push_url,
-          //   res.body?.html_url
-          // ) ;
 
         },
   
